@@ -1,4 +1,5 @@
 Implementáld az alábbi leírás szerinti java code-ot:
+
 ###Wagon osztály:
 - nem lehet közvetlenül példányosítani a csak a Wagon osztályból leszármazott osztályok példányosításakor jöhet létre új vagon.
 - két privát fieldje van: `int cargoMassInTons` szállítható rakomány és `int numberOfPassengerSeats` szállítható utas mennyiség.
