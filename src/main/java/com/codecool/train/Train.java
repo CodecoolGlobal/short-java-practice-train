@@ -3,14 +3,15 @@ package com.codecool.train;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Train {
-    private List<Wagon> wagons = new ArrayList<>();
+class Train {
+    private List<Wagon> wagons;
 
-    public Train(List<Wagon> wagons) {
+    Train(List<Wagon> wagons) {
         this.wagons = wagons;
     }
 
-    public Train(int numOfPassengers, int cargoInTons) {
+    Train(int numOfPassengers, int cargoInTons) {
+        wagons = new ArrayList<>();
         for (int i=0; i < Math.ceil(numOfPassengers / (double) PassengerWagon.NUM_OF_PASSENGER_SEATS); i++){
             wagons.add(new PassengerWagon());
         }
@@ -19,19 +20,19 @@ public class Train {
         }
     }
 
-    public List<Wagon> getWagons() {
+    List<Wagon> getWagons() {
         return wagons;
     }
 
-    public int getNumOfWagons(){
+    int getNumOfWagons(){
         return wagons.size();
     }
 
-    public int getPassengerCapacity(){
+    int getPassengerCapacity(){
         return wagons.stream().mapToInt(Wagon::getNumberOfPassengerSeats).sum();
     }
 
-    public int getCargoCapacity(){
+    int getCargoCapacity(){
         return wagons.stream().mapToInt(Wagon::getCargoMass).sum();
     }
 }
